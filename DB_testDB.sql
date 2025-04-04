@@ -1,0 +1,4 @@
+CREATE DATABASE testDB;
+GO
+USE testDB;
+GO
