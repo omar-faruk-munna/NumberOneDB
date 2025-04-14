@@ -1,0 +1,16 @@
+CREATE TABLE tblSuppliers (
+    SupplierID INT PRIMARY KEY IDENTITY(1,1),
+    SupplierName NVARCHAR(255) NOT NULL,
+    ContactPerson NVARCHAR(255) NULL,
+    Phone NVARCHAR(20) NULL,
+    Email NVARCHAR(255) NULL,
+    Address NVARCHAR(MAX) NULL,
+    Country NVARCHAR(100) NULL,
+    Notes NVARCHAR(MAX) NULL,
+
+    CreatedDate DATETIME DEFAULT GETDATE(),
+    CreatedBy NVARCHAR(100) NOT NULL,
+    UpdatedDate DATETIME NULL,
+    UpdatedBy NVARCHAR(100) NULL,
+    Status VARCHAR(10) DEFAULT 'ACTIVE' CHECK (Status IN ('ACTIVE', 'INACTIVE'))
+);
