@@ -7,12 +7,22 @@ CREATE TABLE tblSales (
     DiscountAmount DECIMAL(10,2) DEFAULT 0.00,
     NetAmount AS (TotalAmount - DiscountAmount) PERSISTED,
     SaleDetails NVARCHAR(MAX) NULL,
+	SalespersonName NVARCHAR(255) NULL,
+	
+	PaymentType NVARCHAR(100) NOT NULL, -- CASH, CHEQUE, CARD, ROCKET, BKASH
+	PaymentStatus NVARCHAR(100) NOT NULL CHECK (PaymentStatus IN (
+    'DUE', 
+    'PARTIAL', 
+    'PAID',
+    'OVERPAID',
+    'REFUNDED',
+    'CANCELLED')), 
 
     CreatedDate DATETIME DEFAULT GETDATE(),
     CreatedBy NVARCHAR(100) NOT NULL,
     UpdatedDate DATETIME NULL,
     UpdatedBy NVARCHAR(100) NULL,
-    Status VARCHAR(10) DEFAULT 'ACTIVE' CHECK (Status IN ('ACTIVE', 'INACTIVE')),
+    IsActive BIT DEFAULT 1, -- For soft delete handling
 
     FOREIGN KEY (CustomerID) REFERENCES tblCustomers(CustomerID)
 );
