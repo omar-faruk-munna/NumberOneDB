@@ -1,0 +1,13 @@
+CREATE TABLE tblCustomers (
+    CustomerID INT PRIMARY KEY IDENTITY(101,1),
+    CustomerName NVARCHAR(255) NOT NULL,
+    Phone NVARCHAR(20),
+    Email NVARCHAR(255),
+    Address NVARCHAR(MAX),
+	
+	CreatedDate DATETIME DEFAULT GETDATE(),
+    CreatedBy NVARCHAR(100) NOT NULL,
+    UpdatedDate DATETIME NULL,
+    UpdatedBy NVARCHAR(100) NULL,
+    Status VARCHAR(10) DEFAULT 'ACTIVE' CHECK (Status IN ('ACTIVE', 'INACTIVE')),
+);
