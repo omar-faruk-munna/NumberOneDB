@@ -16,6 +16,6 @@ CREATE TABLE tblProductPurchases (
     UpdatedBy NVARCHAR(100) NULL,
 	Status VARCHAR(20) DEFAULT 'ACTIVE' CHECK (Status IN ('ACTIVE', 'INACTIVE')),
 
-    FOREIGN KEY (ProductID) REFERENCES tblProducts(ProductID)
+    FOREIGN KEY (ProductID) REFERENCES tblProducts(ProductID),
     FOREIGN KEY (SupplierID) REFERENCES tblSuppliers(SupplierID)
 );
