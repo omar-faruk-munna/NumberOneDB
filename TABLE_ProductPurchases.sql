@@ -2,7 +2,7 @@ CREATE TABLE tblProductPurchases (
 	PurchaseID INT PRIMARY KEY,
     Quantity INT NOT NULL,
     UnitPrice DECIMAL(10,2) NOT NULL, -- Per-unit cost for this batch
-    TotalPrice AS (Quantity * UnitPrice) PERSISTED,
+    TotalPrice AS (Quantity * UnitPrice) PERSISTED, --when creating computed column in table, We have to use PERSISTED Keyword
     PurchaseDate DATE NOT NULL,
     InvoiceNumber NVARCHAR(200) NULL, -- use as batch
     PurchaseDetails NVARCHAR(MAX) NULL,
