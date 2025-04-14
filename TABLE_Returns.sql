@@ -5,7 +5,6 @@ CREATE TABLE tblReturns (
     Quantity INT NOT NULL,
     ReturnReason NVARCHAR(MAX) NOT NULL,
 	ReturnDate DATETIME NOT NULL,
-    ReturnDateByDefault DATETIME DEFAULT GETDATE(),
     RefundAmount DECIMAL(10,2) DEFAULT 0.00, -- if any amount is refunded
 
     CreatedDate DATETIME DEFAULT GETDATE(),
